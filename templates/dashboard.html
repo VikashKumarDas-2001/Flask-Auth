@@ -1,0 +1,25 @@
+{% extends 'app.html' %}
+{% block content %}
+<div class="container">
+  <h2>Welcome to Dashboard Page</h2>
+
+  {% if user %}
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">User Information</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Name:</strong> {{ user[1] }}</li>
+          <li class="list-group-item"><strong>Email:</strong> {{ user[2] }}</li>
+        </ul>
+        <a href="/logout" class="btn btn-dark mt-3">Logout</a>
+      </div>
+    </div>
+  {% else %}
+    <div class="alert alert-warning mt-3" role="alert">
+      You are not logged in. Please <a href="/login" class="alert-link">login</a> to access the dashboard.
+    </div>
+  {% endif %}
+</div>
+
+
+{% endblock %}
